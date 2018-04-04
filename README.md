@@ -1,2 +1,2 @@
 # EventManager
-En desarrolo :)
+En fase de desarrollo, estamos trabajando :)
