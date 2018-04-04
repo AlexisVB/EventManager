@@ -48,6 +48,7 @@ public class CGeoUpdater {
         peticionHttp();
 
     }
+    //Lista para buscar tus dispositivos
     public ArrayList<Clocation> SearchDevices(ArrayList<CDevice> dispositivos)
     {
         ArrayList<Clocation> puntos= new ArrayList<Clocation>();
@@ -57,6 +58,7 @@ public class CGeoUpdater {
         }
         return  puntos;
     }
+    //favor de implementar esto en un hilo :)
     private void peticionHttp()
     {
 
@@ -77,6 +79,7 @@ public class CGeoUpdater {
         });
 
     }
+    //yo solo estoy para ayudar
     private Clocation SearchByMac(String Mac)
     {
         double lng=0;
