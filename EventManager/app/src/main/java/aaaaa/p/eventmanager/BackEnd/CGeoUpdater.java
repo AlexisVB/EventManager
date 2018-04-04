@@ -8,11 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -24,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import aaaaa.p.eventmanager.API.API;
+import aaaaa.p.eventmanager.MapsActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,14 +33,28 @@ public class CGeoUpdater {
     //Busca en los dispositivos en nube
     //obtiene la posición de cada uno
     //avisa que tiene nuevos datos
+    private boolean disponible;
     private  CContainer actual;
-    private Context context;
-    public CGeoUpdater(Context c)
+    private MapsActivity padre;
+
+    public CGeoUpdater(MapsActivity p)
     {
-        this.context=c;
+        padre= p;
+        disponible=false;
+
     }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
     public void Start()
     {
+        //recibir listas
         peticionHttp();
 
     }
@@ -61,13 +71,17 @@ public class CGeoUpdater {
     //favor de implementar esto en un hilo :)
     private void peticionHttp()
     {
-
+    try
+    {
         InterfaceHttp service= API.getApiUpdates().create(InterfaceHttp.class);
         Call<CContainer> updatesCall=service.getUpdates();
         updatesCall.enqueue(new Callback<CContainer>() {
             @Override
             public void onResponse(Call<CContainer> call, Response<CContainer> response) {
+
                 actual=response.body();
+                disponible=true;
+                padre.RenderPoints();
                 //meter a la cola de actualización
                 Log.w("Hi","OK");
             }
@@ -77,6 +91,9 @@ public class CGeoUpdater {
                 Log.w("Err","Fuk");
             }
         });
+    }catch (Exception e) {
+        Log.w("Err", "Fuk2");
+    }
 
     }
     //yo solo estoy para ayudar

@@ -22,6 +22,7 @@ public class CDevice {
     private String seenTime;
     private String ipv4;
 
+
     public CDevice(int idDevice, String mac, int idUser, String os, String ssid, String manufacturer, String seeenEpoch, Clocation location, String ipv6, String rssi, String clientMac, String seenTime, String ipv4) {
         IdDevice = idDevice;
         Mac = mac;
@@ -37,7 +38,9 @@ public class CDevice {
         this.seenTime = seenTime;
         this.ipv4 = ipv4;
     }
+    public CDevice(){
 
+    }
     public int getIdDevice() {
         return IdDevice;
     }

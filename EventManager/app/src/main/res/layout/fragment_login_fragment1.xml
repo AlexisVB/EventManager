@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginFragment1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/editTextUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="20sp"
+            android:layout_weight="1"
+            android:drawablePadding="5sp"
+            android:hint="Correo electrónico"
+            android:inputType="text"
+            android:padding="5sp" />
+
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="10sp"
+            android:src="@drawable/mail" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="50sp"
+            android:layout_marginStart="10sp"
+            android:layout_marginTop="30sp"
+            android:layout_weight="1"
+            android:drawablePadding="5sp"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="5sp" />
+
+        <ImageView
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="10sp"
+            android:src="@drawable/logo" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="150sp"
+        android:layout_height="60sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/button_round"
+        android:drawablePadding="5sp"
+        android:padding="5sp"
+        android:text="Acceder"
+        android:textColor="#303030"
+        android:textSize="18sp" />
+
+</LinearLayout>
